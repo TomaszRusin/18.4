@@ -20,22 +20,15 @@ var movies = [
     }
 ];
 
-var Movie = React.createClass({
-    
-    propTypes: {
-      movies: React.PropTypes.array.isRequired,
-    },
-  
-    render: function() {
-        return (  React.createElement('li', {key: movies.id},
-            React.createElement('h2', {}, movies.title),
-            React.createElement('p', {}, movies.desc),
-            React.createElement('img', {src: movies.url},))
-        )}
-    });
+var App = React.createClass({
+      render: function() {
+        return (
+            React.createElement('div', {className: 'app'},
+                React.createElement(MoviesList, {items: movies})
+             )
+          );
+      } 
+});
 
-
-
-var element = React.createElement(Movie, {key: movies.id},);
-ReactDOM.render(element, document.getElementById('app'));
-
+var app = React.createElement(App);
+ReactDOM.render(app, document.getElementById('app'));
